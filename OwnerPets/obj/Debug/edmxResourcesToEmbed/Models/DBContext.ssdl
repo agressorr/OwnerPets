@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="OwnerPetsDBModel.Store" Provider="System.Data.SQLite.EF6" ProviderManifestToken="data source=&quot;C:\Users\agressorr\Documents\Visual Studio 2015\Projects\OwnerPets\OwnerPets\DB\OwnerPetsDB&quot;" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Owners">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="integer" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="30" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Pets">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="integer" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="OwnerId" Type="integer" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Pets_0_0">
+    <End Role="Owners" Type="Self.Owners" Multiplicity="1" />
+    <End Role="Pets" Type="Self.Pets" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Owners">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Pets">
+        <PropertyRef Name="OwnerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="OwnerPetsDBModelStoreContainer">
+    <EntitySet Name="Owners" EntityType="Self.Owners" store:Type="Tables" />
+    <EntitySet Name="Pets" EntityType="Self.Pets" store:Type="Tables" />
+    <AssociationSet Name="FK_Pets_0_0" Association="Self.FK_Pets_0_0">
+      <End Role="Owners" EntitySet="Owners" />
+      <End Role="Pets" EntitySet="Pets" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

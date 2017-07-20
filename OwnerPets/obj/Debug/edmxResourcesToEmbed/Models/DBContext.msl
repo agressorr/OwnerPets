@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="OwnerPetsDBModelStoreContainer" CdmEntityContainer="OwnerPetsDBEntities">
+    <EntitySetMapping Name="Owners">
+      <EntityTypeMapping TypeName="OwnerPetsDBModel.Owners">
+        <MappingFragment StoreEntitySet="Owners">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Pets">
+      <EntityTypeMapping TypeName="OwnerPetsDBModel.Pets">
+        <MappingFragment StoreEntitySet="Pets">
+          <ScalarProperty Name="OwnerId" ColumnName="OwnerId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

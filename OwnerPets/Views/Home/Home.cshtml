@@ -1,0 +1,30 @@
+﻿@{
+    ViewBag.Title = "Owner Pets";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section scripts {
+
+<script src="~/Content/angular.js"></script>
+<script src="~/Content/angular-animate.js"></script>
+<script src="~/Content/angular-sanitize.js"></script>
+<script src="~/Content/angular-route.js"></script>
+<script src="~/Content/ui-bootstrap-tpls-2.5.0.js"></script>
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+
+    <link href="~/Content/CustomStyle.css" rel="stylesheet" />
+    <script src="~/Scripts/ng/app.js"></script>
+
+}
+<html>
+<head lang="en">
+    <meta charset="utf-8">
+    <title>Owner Pet's</title>
+
+</head>
+<body>
+
+    <div ng-app="app">
+        <ng-view></ng-view>
+    </div>
+</body>
+</html>

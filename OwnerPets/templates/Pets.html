@@ -1,0 +1,48 @@
+﻿<div ng-app="app" id="body">
+    <div ng-controller="PetCtrl">
+
+        <a href="#/Home/Owners"> Back to All Users</a>
+
+        <h2>{{OwnerName}} Pet's</h2>
+        <br/>
+
+        <h3>Add Pet</h3>
+
+        <div>
+            <div>
+                <input type="text" placeholder="Enter Pet's Name" data-ng-model="Pet.Name"/>
+                <button data-ng-click="savePet()" class="btn btn-success">Add</button>
+            </div>
+        </div>
+        <hr/>
+        <label class="label label-info">Total count: {{PetsData.length}}</label>
+        <div style="width: 100%; max-width: 600px; min-height: 190px;position: center; background-color: white;" class="text-center">
+            <table ng-cloak class="table table-striped table-bordered">
+                <thead>
+                <tr>
+                    <th style="display: none;">ID</th>
+                    <th>Name</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="Pet in filteredPetsData">
+                    <td hidden="hidden">{{Pet.id}}</td>
+                    <td>
+                        {{Pet.Name}}
+                        <button ng-model="$scope.Pet" ng-click="deletePet(Pet.id)" class="btn btn-warning pull-right">
+                            Delete
+                        </button>
+                    </td>
+                    <td hidden="hidden">{{Pet.Ownerid}}</td>
+                </tr>
+                </tbody>
+            </table>
+
+        </div>
+        <div class="text-center" style="width: 100%; max-width: 600px;">
+            <ul class="pagination" uib-pagination direction-links="false" total-items="totalPets"
+                items-per-page="itemsPerPage" ng-model="currentPage"></ul>
+        </div>
+        <br/>
+    </div>
+</div>
